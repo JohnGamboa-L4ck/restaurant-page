@@ -1,10 +1,10 @@
 :root {
-    --transparent: rgba(0, 0, 0, .0);
+    --transparent0: rgba(0, 0, 0, .0);
+    --transparent8: rgba(0, 0, 0, .8);
     --light: hsl(0, 0%, 92%);
     --dark: hsl(0, 0%, 12%);
-
-    --background: var(--light);
-    --foreground: var(--dark);
+    --champagne: hsl(37, 17%, 97%);
+    --auburn: hsl(0, 75%, 65%);
 }
 
 *, *:before, *:after {
@@ -17,5 +17,106 @@
 
 body {
     min-height: 100vh;
-    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--light);
+} 
+
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: var(--light);
+    font-family: 'Cairo', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: var(--light);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Merienda', cursive;
+}
+
+button:hover,
+button:focus-visible, 
+a:hover,
+a:focus-visible{
+    color: var(--auburn);
+    text-decoration: underline;
+    text-underline-offset: 30%;
+}
+
+.background {
+    background-image: url(./img/arseniy-chebynkin-kitnl.jpg);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--transparent8);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 2rem 1rem 1rem 1rem;
+    color: var(--light);
+}
+
+header nav {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+header nav button{
+    margin: 1rem;
+    font-size: 1.2rem;
+    background: var(--transparent0);
+}
+
+div.content {
+    flex: 1;
+    display: inherit;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--midnight-blue);
+    background-color: var(--transparent0);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--dark);
+}
+
+footer div{
+    margin: .5rem 1rem;
+    font-size: .9rem;
+    color: var(--light);
+}
+
+i {
+    font-size: 1.2rem;
+}
+
+footer div a {
+    font-size: 1rem;  
 }
