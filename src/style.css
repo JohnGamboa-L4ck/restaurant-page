@@ -3,13 +3,11 @@
     --transparent8: rgba(0, 0, 0, .8);
     --light: hsl(0, 0%, 92%);
     --dark: hsl(0, 0%, 12%);
-    --champagne: hsl(37, 17%, 97%);
+    --givry: hsl(44, 80%, 85%);
     --auburn: hsl(0, 75%, 65%);
 }
 
 *, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0;
     margin: 0;  
@@ -21,6 +19,11 @@ body {
     flex-direction: column;
     font-family: 'Cairo', sans-serif;
     background-color: var(--light);
+    color: var(--light);
+    background-image: url(./img/arseniy-chebynkin-kitnl.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
 } 
 
 button {
@@ -39,29 +42,16 @@ a {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Merienda', cursive;
+    text-align: center;
 }
 
 button:hover,
 button:focus-visible, 
 a:hover,
 a:focus-visible{
-    color: var(--auburn);
     text-decoration: underline;
     text-underline-offset: 30%;
-}
-
-.background {
-    background-image: url(./img/arseniy-chebynkin-kitnl.jpg);
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    color: var(--givry);
 }
 
 header {
@@ -73,9 +63,8 @@ header {
 
 header h1 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding: 2rem 1rem 1rem 1rem;
-    color: var(--light);
 }
 
 header nav {
@@ -90,14 +79,120 @@ header nav button{
     background: var(--transparent0);
 }
 
+.nav-btn.active {
+    color: var(--auburn);
+    text-decoration: underline;
+    text-underline-offset: 30%;
+}
+
 div.content {
     flex: 1;
-    display: inherit;
-    flex-direction: row;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 1rem;
     color: var(--midnight-blue);
     background-color: var(--transparent0);
+}
+
+div.content > div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: .5rem;
+    background-color: var(--transparent8);
+    border-radius: 3px;
+}
+
+div.content > div > div,
+div.content > div > div > div {
+    padding: 1rem;
+}
+
+.div-combo {
+    padding: 0!important;
+    display: flex;
+    flex-direction: row;
+}
+
+.div-combo div:nth-child(1) {
+    background-color: var(--transparent8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.review {
+    max-width: 50ch;
+}
+
+.review p {
+    padding: .1rem;
+}
+
+.review p::before,
+.review p::after {
+    content: '"';
+    font-size: 1.3rem;
+    color: gray;
+}
+
+.right {
+    text-align: right;
+    font-weight: bolder;
+}
+
+.right::before {
+    content: "- ";
+}
+
+h3 {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h5::before {
+    content: "\00A5";
+}
+
+h5 {
+    text-align: right;
+}
+
+.content > div > div.food {
+    background-color: var(--transparent8);
+    border-radius: 3px;
+    margin-top: 1rem;
+}
+
+.content > div > div.food img {
+    width: 100%;
+    max-width: 50ch;
+}
+
+.content div.contact p {
+    width: 100%;
+}
+
+.content div.contact p span {
+    float: right;
+}
+
+.content div.contact img {
+    width: 100%;
+    max-width: 60ch;
+    object-fit: cover;
 }
 
 footer{
@@ -110,7 +205,6 @@ footer{
 footer div{
     margin: .5rem 1rem;
     font-size: .9rem;
-    color: var(--light);
 }
 
 i {
