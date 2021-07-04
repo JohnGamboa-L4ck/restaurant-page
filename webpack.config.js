@@ -4,15 +4,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.js',
-    home: './src/home.js',
-    menu: './src/menu.js',
-    contact: './src/contact.js',
+    index: {
+      import: './src/index.js',
+    },
+    home: {
+      import: './src/home.js',
+    },
+    menu: {
+      import: './src/menu.js',
+    },
+    contact: {
+      import: './src/contact.js',
+    },
   },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
   devtool: 'inline-source-map',
   plugins: [
