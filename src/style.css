@@ -189,7 +189,8 @@ h5 {
     float: right;
 }
 
-.content div.contact img {
+.content div.contact img,
+.hero img {
     width: 100%;
     max-width: 60ch;
     object-fit: cover;
