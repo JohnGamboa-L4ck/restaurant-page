@@ -1,6 +1,10 @@
 import ButteredSalmon from './img/foods/buttered-salmon.png';
 import ChirashiSushi from './img/foods/chirashi-sushi.png';
 import Stew from './img/foods/stew.png';
+import RoastBeef from './img/foods/roast-beef.png';
+import TeaOverRice from './img/foods/tea-over-rice.png';
+import Omelette from './img/foods/omelet-rice.png';
+import FriedChicken from './img/foods/fried-chicken.png';
 
 'use strict';
 
@@ -27,6 +31,22 @@ const menu = (function(){
         'Heartwarming Stew',
         'あったか寄せ鍋',
         600, Stew));
+    array.push(foodFactory(
+        'One-Pan Roast Beef',
+        'フライパンだけで作るローストビーフ',
+        2000, RoastBeef));
+    array.push(foodFactory(
+        'Chilled Green Tea Over Rice',
+        'さらりと頂く冷やし茶漬け',
+        300, TeaOverRice));
+    array.push(foodFactory(
+        'Soft and Melty Omelet Rice',
+        '特製ふわとろオムライス',
+        200, Omelette));
+    array.push(foodFactory(
+        'Fried Chicken',
+        '冷めても美味しいからあげ',
+        400, FriedChicken));
 
     function _createMenu(){
         const containerDiv = document.createElement('div');
@@ -45,7 +65,7 @@ const menu = (function(){
             div.setAttribute('class','food');
             newH4.innerText = meal.name;
             newPara.innerText = meal.kanji;
-            newH5.innerText = meal.price;
+            newH5.innerText = meal.price.toLocaleString();
             foodImage.src = meal.imgSRC;
 
             div.appendChild(foodImage);

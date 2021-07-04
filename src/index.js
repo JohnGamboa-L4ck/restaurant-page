@@ -99,9 +99,34 @@ const setUpFooterTag = (function(){
         (newFooter, document.querySelector('body script'));
 })();
 
-// divContent.element.innerHTML = '';
-// document.querySelectorAll('nav button').forEach((btn)=>btn.classList.remove('active'));
-// home.display();
+const clickHandler = function(){
+    if(this.classList.contains('active')) return;
 
-menu.display();
-// contact.display();
+    let target = this.id;
+    divContent.element.innerHTML = '';
+    document.querySelectorAll('nav button').forEach((btn)=>btn.classList.remove('active'));
+
+    if (target == 'home-btn'){ home.display(); }
+    else if (target == 'menu-btn'){ menu.display(); }
+    else { contact.display(); }
+};
+
+document.querySelectorAll('nav button').forEach((button) => {
+    button.addEventListener('click', clickHandler);
+});
+
+const keydownHandler = function(event){
+    if(event.code !== 'Tab') return;
+    event.preventDefault();
+
+    const active = document.querySelector('.nav-btn.active');
+
+    if (active.id == 'home-btn'){ 
+        document.querySelector('#menu-btn').click(); } 
+    else if (active.id == 'menu-btn'){ 
+        document.querySelector('#contact-btn').click(); }
+    else { document.querySelector('#home-btn').click(); }
+};
+
+window.addEventListener('keydown', keydownHandler);
+document.querySelector('#home-btn').click();
